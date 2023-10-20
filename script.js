@@ -12,12 +12,12 @@ $(document).ready(function () {
   //
 
   // click event to save the form
-$("saveBtn").on("click", function () {
+  $(".saveBtn").on("click", function () {
     
 
     // Save inputs to local storage
     const timeBlockID = $(this).parent().attr("id");
-    const description = $(this).siblings("textarea").val();
+    const description = $(this).siblings(".description").val();
     localStorage.setItem(timeBlockID, description);
       
   });
