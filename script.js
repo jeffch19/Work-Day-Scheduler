@@ -65,7 +65,17 @@ $('.time-block').each(function() {
   // attribute of each time-block be used to do this?
   //
 
-
+  $('.time-block').each(function() {
+    const timeBlockID = $(this).attr('id');
+    const savedInput = localStorage.getItem(timeBlockID);
+  
+    // Check if there is saved input for this time block
+    if (savedInput !== null) {
+      // Set the saved input as the value of the textarea
+      $(this).find('.description').val(savedInput);
+    }
+  });
+  
 
 
   // TODO: Add code to display the current date in the header of the page.
