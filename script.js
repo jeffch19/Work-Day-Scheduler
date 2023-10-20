@@ -32,18 +32,22 @@ $(document).ready(function () {
   // 
 
 // Get the current hour in 24-hour format 
-const currentHour = dayjs().format('k');
+const currentHour = dayjs().format('H');
+
+console.log("Current Hour:", currentHour);
 
 // Loop through all time blocks
 $('.time-block').each(function() {
   // Extract the hour from the time block's ID
   const timeBlockHour = parseInt($(this).attr('id').split('-')[1]);
 
+  console.log("Time Block Hour:", timeBlockHour);
+
   // Compare the current hour with the time block's hour
   if (timeBlockHour < currentHour) {
     // Time block is in the past
     $(this).removeClass('present future').addClass('past');
-  } else if (timeBlockHour === currentHour) {
+  } else if (timeBlockHour == currentHour) {
     // Time block is in the present
     $(this).removeClass('past future').addClass('present');
   } else {
